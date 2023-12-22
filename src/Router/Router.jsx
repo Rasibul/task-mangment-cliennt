@@ -6,6 +6,7 @@ import Profile from "../Pages/Profile";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashbord from "../Pages/DashBord/Dashbord";
+import CreateTask from "../Pages/DashBord/Pages/CreateTask/CreateTask";
 
 const route = createBrowserRouter([
     {
@@ -39,7 +40,13 @@ const route = createBrowserRouter([
     // dashbord
     {
         path:'dashbord',
-        element:<Dashbord></Dashbord>
+        element:<Dashbord></Dashbord>,
+        children:[
+            {
+                path:'create-task',
+                element:<CreateTask></CreateTask>
+            }
+        ]
     }
 
 ])

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 
 const Navbar = () => {
-    const {user,logOut} = useAuth()
+    const { user, logOut } = useAuth()
     const [isSticky, setSticky] = useState(false);
 
     useEffect(() => {
@@ -70,13 +70,20 @@ const Navbar = () => {
                                     <li>
                                         <button className="btn btn-sm  btn-ghost" onClick={logOut}>Logout</button>
                                     </li>
+                                    <li>
+                                        <Link to='/dashbord'>
+                                            <button className="btn btn-sm btn-ghost">DashBord</button>
+                                        </Link>
+                                    </li>
                                 </ul>
                             </div>
                                 :
                                 <Link to='/login'>
                                     <button className="btn btn-sm  btn-ghost">Login</button>
                                 </Link>
+
                         }
+
                     </div>
                 </div>
             </div>
