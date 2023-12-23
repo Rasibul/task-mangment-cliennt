@@ -5,11 +5,11 @@ import useAuth from "../../Hook/useAuth";
 
 const Dashbord = () => {
     const { user } = useAuth()
-    
+
     return (
-        <div className="flex flex-col lg:flex-row max-w-h-screen ">
+        <div className="flex flex-col lg:flex-row min-h-screen  ">
             {/* Sidebar */}
-            <div className="lg:w-1/4 bg-red-700 p-4 text-white">
+            <div className="lg:w-1/4 bg-orange-700 p-4 text-white">
                 <h1 className="text-2xl font-bold text-white mb-4">Dashboard</h1>
                 <div className="flex justify-center items-center gap-5">
                     <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
@@ -23,21 +23,25 @@ const Dashbord = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/all-tasks'>
+                        <NavLink to='/dashbord/to-do-list'>
                             <FaCartPlus></FaCartPlus>
-                            All Task
+                            Todo
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/to-do-list'>
+                        <NavLink to='/on-going'>
                             <FaCartPlus></FaCartPlus>
-                            To DO List
+                            On Going
                         </NavLink>
                     </li>
                     <li>
-
-                        <div className="divider bg-white"></div>
-
+                        <NavLink to='/completd'>
+                            <FaHome></FaHome>
+                            Completed
+                        </NavLink>
+                    </li>
+                    <div className="divider bg-white"></div>
+                    <li>
                         <NavLink to='/'>
                             <FaHome></FaHome>
                             Home

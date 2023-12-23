@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashbord from "../Pages/DashBord/Dashbord";
 import CreateTask from "../Pages/DashBord/Pages/CreateTask/CreateTask";
+import ToDoList from "../Pages/DashBord/Pages/ToDoList/ToDoList";
 
 const route = createBrowserRouter([
     {
@@ -45,6 +46,11 @@ const route = createBrowserRouter([
             {
                 path:'create-task',
                 element:<CreateTask></CreateTask>
+            },
+            {
+                path:'to-do-list',
+                element:<ToDoList></ToDoList>,
+                 loader: () => fetch(`http://localhost:5000/api/v1/all-task`)
             }
         ]
     }

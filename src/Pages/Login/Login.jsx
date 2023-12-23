@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hook/useAuth";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -22,7 +23,11 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
-                toast.success('User Login Successfully!');
+                Swal.fire({
+                    title: "User Login Sucessfully",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
                 navigate('/dashbord')
             })
             .catch((err) => {

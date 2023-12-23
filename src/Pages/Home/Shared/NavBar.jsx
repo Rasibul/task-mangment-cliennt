@@ -20,8 +20,8 @@ const Navbar = () => {
 
     const navLinks = [
         { path: "/", label: "Home" },
-        { path: "/tasks", label: "Task" },
-        { path: "/profile-page", label: "Profile Page" },
+        { path: "/about", label: "About" },
+        { path: "/conatct", label: "Contact" },
     ];
 
     const renderNavLinks = navLinks.map((link) => (

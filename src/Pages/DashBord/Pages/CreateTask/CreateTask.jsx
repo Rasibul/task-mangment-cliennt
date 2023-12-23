@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 const CreateTask = () => {
@@ -19,7 +20,11 @@ const CreateTask = () => {
         const allTask = await axios.post('http://localhost:5000/api/v1/all-task',addTask)
         if(allTask.data.insertedId){
             reset()
-            toast.success("Task Added Sucessfully")
+            Swal.fire({
+                title: "Task Added Sucessfully",
+                text: "You clicked the button!",
+                icon: "success"
+              });
         }
     }
     return (
