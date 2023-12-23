@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
-    const [isSticky, setSticky] = useState(false);
+    // const [isSticky, setSticky] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const offset = window.scrollY;
-            setSticky(offset > 0);
-        };
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const offset = window.scrollY;
+    //         setSticky(offset > 0);
+    //     };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    //     window.addEventListener("scroll", handleScroll);
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll);
+    //     };
+    // }, []);
 
     const navLinks = [
         { path: "/", label: "Home" },
         { path: "/about", label: "About" },
-        { path: "/conatct", label: "Contact" },
+        { path: "/contact", label: "Contact" },
     ];
 
     const renderNavLinks = navLinks.map((link) => (
@@ -31,9 +31,9 @@ const Navbar = () => {
     ));
 
     return (
-        <header className={`fixed top-0 right-0 left-0 transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 ${isSticky ? "shadow-md" : ""}`}>
+        <header className={` top-0 right-0 left-0 transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500`}>
             <div className="max-w-screen-2xl container mx-auto">
-                <div className={`navbar xl:px-24 ${isSticky ? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-500" : "transition-all duration-300"}`}>
+                <div className="navbar xl:px-24  bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 transition-all duration-300">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">

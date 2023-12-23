@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hook/useAuth";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const {
@@ -11,14 +12,18 @@ const SignUp = () => {
         formState: { errors },
     } = useForm()
 
-    const { signUpWithGmail, createUser} = useAuth()
+    const { signUpWithGmail, createUser } = useAuth()
+    const navigate = useNavigate()
 
     const handelLogin = () => {
         signUpWithGmail()
-            .then((result) => {
-                const user = result.user;
-                console.log(user)
-                toast.success('User Login Successfully!');
+            .then(() => {
+                Swal.fire({
+                    title: "User Login Sucessfully",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+                navigate('/dashbord')
             })
             .catch((err) => {
                 console.log(err);
@@ -30,12 +35,13 @@ const SignUp = () => {
         const password = data.password
         // console.log(email,password)
         createUser(email, password)
-            .then((result) => {
-                const user = result.user
-                console.log(user)
-                toast.success('User Login Successfully!')
-                // Navigate to the specified path
-                // navigate(from, { replace: true });
+            .then(() => {
+                Swal.fire({
+                    title: "User Login Sucessfully",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+                navigate('/dashbord')
             }).catch((err) => {
                 console.log(err)
             })

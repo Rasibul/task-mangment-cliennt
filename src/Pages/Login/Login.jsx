@@ -20,9 +20,9 @@ const Login = () => {
 
     const handelLogin = () => {
         signUpWithGmail()
-            .then((result) => {
-                const user = result.user;
-                console.log(user)
+            .then(() => {
+                // const user = result.user;
+                // console.log(user)
                 Swal.fire({
                     title: "User Login Sucessfully",
                     text: "You clicked the button!",
@@ -41,11 +41,12 @@ const Login = () => {
         // console.log(email,password)
         login(email, password)
             .then(() => {
-                // const user = result.user
-                toast.success('User Login Successfully!')
-
-                // Navigate to the specified path
-                // navigate(from, { replace: true });
+                Swal.fire({
+                    title: "User Login Sucessfully",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+                navigate('/dashbord')
             }).catch((err) => {
                 const errorMessage = err.message
                 setErrorMessage("Provide a correct email and password")

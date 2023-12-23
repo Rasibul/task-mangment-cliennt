@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayOut from "../LayOut/MainLayOut";
 import Home from "../Pages/Home/Home";
-import Task from "../Pages/Task";
-import Profile from "../Pages/Profile";
+import Profile from "../Pages/Contact";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashbord from "../Pages/DashBord/Dashbord";
 import CreateTask from "../Pages/DashBord/Pages/CreateTask/CreateTask";
 import ToDoList from "../Pages/DashBord/Pages/ToDoList/ToDoList";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
+import OnGoing from "../Pages/DashBord/Pages/OnGoing";
+import Completed from "../Pages/DashBord/Pages/Completed";
 
 const route = createBrowserRouter([
     {
@@ -19,12 +22,12 @@ const route = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/tasks',
-                element: <Task></Task>
+                path: '/about',
+                element: <About></About>
             },
             {
-                path: '/profile-page',
-                element: <Profile></Profile>
+                path: '/contact',
+                element:<Contact></Contact>
             }
         ]
     },
@@ -51,7 +54,15 @@ const route = createBrowserRouter([
                 path:'to-do-list',
                 element:<ToDoList></ToDoList>,
                  loader: () => fetch(`http://localhost:5000/api/v1/all-task`)
-            }
+            },
+            {
+                path:'on-going',
+                element:<OnGoing></OnGoing>
+            },
+            {
+                path:'completed',
+                element:<Completed></Completed>
+            },
         ]
     }
 

@@ -1,4 +1,4 @@
-import { FaCartPlus, FaHome } from "react-icons/fa";
+import { FaCartPlus, FaComment, FaGavel, FaHome, FaList } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
 
@@ -24,19 +24,19 @@ const Dashbord = () => {
                     </li>
                     <li>
                         <NavLink to='/dashbord/to-do-list'>
-                            <FaCartPlus></FaCartPlus>
+                            <FaList></FaList>
                             Todo
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/on-going'>
-                            <FaCartPlus></FaCartPlus>
+                        <NavLink to='/dashbord/on-going'>
+                            <FaGavel></FaGavel>
                             On Going
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/completd'>
-                            <FaHome></FaHome>
+                        <NavLink to='/dashbord/completed'>
+                            <FaComment></FaComment>
                             Completed
                         </NavLink>
                     </li>
